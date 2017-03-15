@@ -66,3 +66,54 @@ public class Matriz {
         return ret;
     }
 }
+
+import java.util.Scanner;
+ 
+class MatrixTranspose
+{
+   public static void main(String args[])
+   {
+      int A, B, c, d;
+ 
+      Scanner in = new Scanner(System.in);
+      System.out.println("Enter the number of rows and columns of matrix, \n\t(Seperated by blank space)");
+      A = in.nextInt();
+      B = in.nextInt();
+ 
+      int matrix[][] = new int[A][B];
+ 
+      System.out.println("Enter the elements of matrix, (Seperated by blank space):");
+ 
+      for ( c = 0 ; c < A ; c++ )
+         for ( d = 0 ; d < B ; d++ ){
+            matrix[c][d] = in.nextInt();
+         }
+    
+      System.out.println("\nOriginal matrix:");
+      
+      for (int row = 0; row < matrix.length; row++) {
+        for (int column = 0; column < matrix[row].length; column++) {
+            System.out.print(matrix[row][column] + "\t");
+        }
+        System.out.println();
+      }
+
+      int tp[][] = new int[B][A];
+ 
+      for ( c = 0 ; c < A ; c++ )
+      {
+         for ( d = 0 ; d < B ; d++ )               
+            tp[d][c] = matrix[c][d];
+      }
+ 
+      System.out.println("Transposed matrix:");
+ 
+      for ( c = 0 ; c < B ; c++ )
+      {
+         for ( d = 0 ; d < A ; d++ )
+               System.out.print(tp[c][d]+"\t");
+ 
+         System.out.print("\n");
+      }
+   }
+}
