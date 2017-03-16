@@ -13,6 +13,83 @@ import java.util.Random;
  *
  * @author galvez
  */
+
+/* Multiplicacion Matrices - Ramirez - Inicio */
+
+import java.util.*;
+class multiply
+{
+ int a,b,sum=0;
+ void mult()
+   {
+      Scanner in = new Scanner(System.in);
+      System.out.println("Enter the number of rows of the first matrix:");
+      int m=in.nextInt();
+      System.out.println("Enter the number of columns of the first matrix:");
+      int n=in.nextInt();
+      int[][] mat1 = new int[m+1][n+1];
+      for(a=1;a < m+1;a++)
+       {
+          for(b=1;b < n+1;b++)
+           {
+             System.out.println("Enter element ("+a+","+b+") of the first matrix");
+             mat1[a][b] = in.nextInt();
+            }// end of b loop
+         }//  end of a loop
+      System.out.println("Enter the number of rows of the second matrix:");
+      int p=in.nextInt();
+      System.out.println("Enter the number of columns of the second matrix:");
+      int q=in.nextInt();
+      int[][] mat2 = new int[p+1][q+1];
+      for(a=1;a < p+1;a++)
+       {
+         for(b=1;b < q+1;b++)
+           {
+             System.out.println("Enter element ("+a+","+b+") of the second matrix");
+             mat2[a][b] = in.nextInt();
+            }// end of b loop
+         }// end of a loop
+     if(n==q)//comparing coulmns with rows
+      {
+       int[][] reslt = new int[m+1][q+1];
+       for ( a = 1 ; a < m+1 ; a++ )
+        {
+         for ( b = 1 ; b < n+1 ; b++ )
+          {
+            for (int k = 0 ; k < p+1 ; k++)
+               sum = sum + mat1[a][k]*mat2[k][b];
+            reslt[a][b] = sum;
+            sum = 0;
+          } // end of the loop
+        } // end of the loop
+       System.out.println("The result is:\n");
+       for(a=1;a < m+1;a++)
+        {
+           for(b=1;b< q+1;b++)
+            {
+              System.out.print(reslt[a][b] + "  ");
+             } // end of b loop
+          System.out.println("\n");
+        } // end of a loop
+     }
+    else
+         System.out.println("Error, the number of columns of the first matrix must be equal to the number of rows of the second matrix");
+   }//end of function
+}// end of class
+
+class MatrixMultiplication
+{
+   public static void main(String arg[])
+     {
+       Scanner in = new Scanner(System.in);
+       multiply obj = new multiply();
+       obj.mult();
+     }
+}
+
+
+/* Multiplicacion Matrices - Ramirez - Fin */
+
 public class Matriz {
     private int[][]datos;
     private Random rnd = new Random();
